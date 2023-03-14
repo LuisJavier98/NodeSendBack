@@ -48,10 +48,10 @@ exports.descargar = async (req, res, next) => {
 
   console.log(req.params.archivo)
   const enlace = await Enlaces.findOne({ nombre: req.params.archivo })
-  console.log(__dirname)
+
   const archivo = __dirname + '/../uploads/' + req.params.archivo;
   res.download(archivo)
-
+  console.log(enlace)
   const { descargas, nombre } = enlace
   if (descargas === 1) {
     req.archivo = nombre
